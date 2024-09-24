@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h3>Employee List</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>UserName</th>
+        <th>FullName</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.username }}</td>
+        <td>{{ employee.fullName }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.role }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="setEmployeeForUpdate(employee)" data-bs-toggle="modal" data-bs-target="#updateModal">Update</button>
+          <!-- <button class="btn btn-danger btn-sm" (click)="deleteEmployee(employee.id)">Delete</button> -->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Update Employee Modal -->
+  <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateModalLabel">Update Employee</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- <div class="modal-body">
+          <app-employee-update *ngIf="selectedEmployee" [employee]="selectedEmployee" (close)="closeModal()"></app-employee-update>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

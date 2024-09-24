@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>Add New Employee</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="username" class="form-label">UserName</label>
+      <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
+    </div>
+    <div class="mb-3">
+      <label for="fullname" class="form-label">FullName</label>
+      <input type="text" class="form-control" id="fullname" [(ngModel)]="fullname" name="fullname" required>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
+    </div>
+    <div class="mb-3">
+      <label for="role" class="form-label">Role</label>
+      <input type="text" class="form-control" id="role" [(ngModel)]="role" name="role" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Employee</button>
+  </form>
+</div>

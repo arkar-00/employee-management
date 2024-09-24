@@ -1,0 +1,46 @@
+# Compiled output
+/dist
+/out-tsc
+
+# Node modules
+/node_modules
+
+# IDE and editor files
+/.idea/
+/.vscode/
+/*.sublime-workspace
+/*.sublime-project
+
+# Environment files
+/src/environments/*.ts
+
+# Angular build artifacts
+/build/
+/coverage/
+/*.log
+
+# Temporary files
+/tmp/
+/npm-debug.log
+/yarn-error.log
+
+# Dependency directory
+/lib-cov/
+/lib/
+/coverage/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Optional npm cache directory
+.npm
+
+# IDE specific
+/.idea/
+/*.iml
+/.project
+/.settings
+
+# Angular CLI generated files
+.angular
