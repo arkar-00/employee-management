@@ -1,42 +1,33 @@
 <div class="container-fluid p-0">
-  <!-- Sidebar -->
   <div class="d-flex">
-    <div class="sidebar shadow-sm p-3 d-flex flex-column" style="width: 250px; height: 100vh; position: fixed; background-color: #4B49AC;">
+    <div class="sidebar shadow-sm p-3 d-flex flex-column" *ngIf="isSidebarOpen" style="width: 250px; height: 100vh; position: fixed; background-color: #4B49AC;">
       <h3 class="text-light">Employee Management</h3>
       <ul class="nav flex-column mt-4">
-        <!-- Employee List -->
         <li class="nav-item mb-2 custom-li">
           <a class="nav-link text-light" routerLink="/admin">
             <i class="bi bi-people-fill"></i> Employee List
           </a>
         </li>
-
-        <!-- Add New Employee -->
         <li class="nav-item mb-2 custom-li">
           <a class="nav-link text-light" routerLink="/admin/add">
             <i class="bi bi-person-plus-fill"></i> Add Employee
           </a>
         </li>
       </ul>
-
     </div>
 
-    <!-- Main content -->
-    <div class="content flex-grow-1" style="margin-left: 250px;">
-      <!-- Navbar -->
+    <div class="content flex-grow-1" [style.marginLeft]="isSidebarOpen ? '250px' : '0'">
       <nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #98BDFF;">
         <div class="container-fluid">
+          <button class="btn text-white" (click)="toggleSidebar()" style="font-size: 24px;">
+            <i class="bi bi-list" style="font-size: 1.5em; font-weight: bold;"></i>
+          </button>
           <a class="navbar-brand text-white" href="#">Dashboard</a>
-
-          <!-- Navbar Toggle (for mobile) -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
-          <!-- Navbar Links (right aligned) -->
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
-              <!-- Profile Link with Image -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="https://png.pngtree.com/png-clipart/20240709/original/pngtree-casual-man-flat-design-avatar-profile-picture-vector-png-image_15526568.png" alt="Profile Image" class="rounded-circle me-2" style="width: 30px; height: 30px;">
@@ -44,7 +35,6 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
                   <li><a class="dropdown-item" href="/admin/profile">View Profile</a></li>
-                  <!-- <li><hr class="dropdown-divider"></li> -->
                   <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
                 </ul>
               </li>
@@ -53,62 +43,9 @@
         </div>
       </nav>
 
-      <!-- Content Area -->
       <main class="container mt-4">
-
-        <!-- Router outlet for child components -->
         <router-outlet></router-outlet>
       </main>
     </div>
   </div>
 </div>
-
-<!-- Logout Modal -->
-<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to log out?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmLogout()">Logout</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<style>
-  /* Sidebar List Item Custom Styles */
-
-  .nav-link {
-    color: white !important; /* Text color inside the sidebar */
-  }
-
-  /* Change button styles in the sidebar and logout modal */
-  .btn-danger {
-    background-color: #F3797E !important; /* Supporting color for logout and error */
-    border-color: #F3797E !important;
-  }
-
-  /* Navbar custom styling */
-  .navbar {
-    background-color: #98BDFF; /* Secondary color */
-  }
-
-  .navbar .navbar-brand {
-    color: white !important;
-  }
-
-  .dropdown-menu {
-    background-color: white; /* Dropdown background color */
-  }
-
-  .dropdown-item:hover {
-    background-color: #98BDFF; /* Hover color for dropdown items */
-  }
-</style>
