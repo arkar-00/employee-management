@@ -1,0 +1,16 @@
+<div class="profile-detail-container p-3 border rounded bg-light">
+    <div class="d-flex align-items-center mb-3">
+      <img [src]="profile?.imageUrl" alt="{{ profile?.fullName }}" class="rounded-circle me-3" style="width: 100px; height: 100px;">
+      <h2 class="text-primary">{{ profile?.fullName }}</h2>
+    </div>
+    <div class="profile-info mb-3">
+      <p><strong>Username:</strong> {{ profile?.username }}</p>
+      <p><strong>Email:</strong> {{ profile?.email }}</p>
+      <p><strong>Role:</strong> {{ profile?.role }}</p>
+    </div>
+  
+    <div class="profile-actions">
+      <button class="btn btn-primary" (click)="editProfile()">Edit Profile</button>
+      <button class="btn btn-danger" (click)="deleteProfile()">Delete Profile</button>
+    </div>
+  </div>

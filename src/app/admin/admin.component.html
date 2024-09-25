@@ -1,61 +1,69 @@
 <div class="container-fluid p-0">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Employee Management</a>
+  <!-- Sidebar -->
+  <div class="d-flex">
+    <div class="sidebar shadow-sm p-3 d-flex flex-column" style="width: 250px; height: 100vh; position: fixed; background-color: #4B49AC;">
+      <h3 class="text-light">Employee Management</h3>
+      <ul class="nav flex-column mt-4">
+        <!-- Employee List -->
+        <li class="nav-item mb-2 custom-li">
+          <a class="nav-link text-light" routerLink="/admin">
+            <i class="bi bi-people-fill"></i> Employee List
+          </a>
+        </li>
 
-      <!-- Navbar Toggle (for mobile) -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <!-- Add New Employee -->
+        <li class="nav-item mb-2 custom-li">
+          <a class="nav-link text-light" routerLink="/admin/add">
+            <i class="bi bi-person-plus-fill"></i> Add Employee
+          </a>
+        </li>
+      </ul>
 
-      <!-- Navbar Links (Collapsible) -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/admin">
-              <i class="bi bi-people-fill"></i> Employee List
-            </a>
-          </li>
-
-          <!-- Add Employee Link -->
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/admin/add">
-              <i class="bi bi-person-plus-fill"></i> Add Employee
-            </a>
-          </li>
-
-          <!-- Employee Profile Link -->
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/admin/profile">
-              <i class="bi bi-person-circle"></i>Profile
-            </a>
-          </li>
-        </ul>
-
-        <!-- Logout Button -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <button class="btn btn-danger rounded-pill" data-bs-toggle="modal" data-bs-target="#logoutModal">
-              <i class="bi bi-box-arrow-right"></i> Logout
-            </button>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main content -->
-  <main class="container mt-4">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
     </div>
 
-    <!-- Router outlet for child components -->
-    <router-outlet></router-outlet>
-  </main>
+    <!-- Main content -->
+    <div class="content flex-grow-1" style="margin-left: 250px;">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #98BDFF;">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">Dashboard</a>
+
+          <!-- Navbar Toggle (for mobile) -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar Links (right aligned) -->
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+              <!-- Profile Link with Image -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="https://png.pngtree.com/png-clipart/20240709/original/pngtree-casual-man-flat-design-avatar-profile-picture-vector-png-image_15526568.png" alt="Profile Image" class="rounded-circle me-2" style="width: 30px; height: 30px;">
+                  Profile
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                  <li><a class="dropdown-item" href="/admin/profile">View Profile</a></li>
+                  <!-- <li><hr class="dropdown-divider"></li> -->
+                  <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Content Area -->
+      <main class="container mt-4">
+
+        <!-- Router outlet for child components -->
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
 </div>
 
-<!-- Logout  Modal -->
+<!-- Logout Modal -->
 <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -73,3 +81,34 @@
     </div>
   </div>
 </div>
+
+<style>
+  /* Sidebar List Item Custom Styles */
+
+  .nav-link {
+    color: white !important; /* Text color inside the sidebar */
+  }
+
+  /* Change button styles in the sidebar and logout modal */
+  .btn-danger {
+    background-color: #F3797E !important; /* Supporting color for logout and error */
+    border-color: #F3797E !important;
+  }
+
+  /* Navbar custom styling */
+  .navbar {
+    background-color: #98BDFF; /* Secondary color */
+  }
+
+  .navbar .navbar-brand {
+    color: white !important;
+  }
+
+  .dropdown-menu {
+    background-color: white; /* Dropdown background color */
+  }
+
+  .dropdown-item:hover {
+    background-color: #98BDFF; /* Hover color for dropdown items */
+  }
+</style>
